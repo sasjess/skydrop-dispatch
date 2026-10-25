@@ -5,9 +5,13 @@ import DroneCard from "./DroneCard";
 function FleetList({ drones }) {
   return (
     <section>
-      <h2 className="mb-4 text-2xl font-semibold tracking-tight text-heading">Fleet</h2>
+      <h2 className="mb-4 text-2xl font-semibold tracking-tight text-heading">
+        Fleet ({drones.length})
+      </h2>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <DroneCard drone={drones[0]} />
+        {drones.map((drone) => {
+          return <DroneCard key={drone.id} drone={drone} />;
+        })}
       </div>
     </section>
   );
